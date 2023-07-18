@@ -20,13 +20,23 @@
   font-family: sans-serif;
 }
 
-.mavic-img{
+/* .mavic-img{
+  animation-name: mavic-off;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0, 0, 0, 0.97);
+} */
+.mavic-off{
   animation-name: mavic-off;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0, 0, 0, 0.97);
 }
 
-.mavic:hover .mavic-img{
+/* .mavic:hover .mavic-img{
+  animation-name: mavic-on;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+} */
+.mavic-on{
   animation-name: mavic-on;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -45,14 +55,14 @@
   background-image: url(../img/iphone-back.png);
   left: 21%;
   transform: translateY(200%) rotate(-200deg);
-  animation-name: back-off;
+  /* animation-name: back-off; */
 }
 
 .mavic::after{
   background-image: url(../img/iphone-front.png);
   right: 21%;
   transform: translateY(200%) rotate(200deg);
-  animation-name: front-off;
+  /* animation-name: front-off; */
 }
 
 .mavic:hover::before,
@@ -61,11 +71,23 @@
   animation-fill-mode: forwards;
 }
 
-.mavic:hover::before{
+/* .mavic:hover::before{
+  animation-name: back-on;
+} */
+/* .mavic:hover::after{
+  animation-name: front-on;
+} */
+.animation-on::after{
+  animation-name: front-on;
+}
+.animation-off::after{
+  animation-name: front-off;
+}
+.animation-on::before{
   animation-name: back-on;
 }
-.mavic:hover::after{
-  animation-name: front-on;
+.animation-off::before{
+  animation-name: back-off;
 }
 
 @keyframes mavic-on {
@@ -103,7 +125,12 @@
     right: 21%;
     transform: translateY(200%) rotate(200deg);
   }
+  50%{
+    right: 21%;
+    transform: translateY(0) rotate(0);
+  }
   100%{
+    right: 33%;
     transform: translateY(0) rotate(0);
   }
 }
@@ -123,7 +150,12 @@
     left: 21%;
     transform: translateY(200%) rotate(-200deg);
   }
+  50%{
+    left: 21%;
+    transform: translateY(0) rotate(0);
+  }
   100%{
+    left: 33%;
     transform: translateY(0) rotate(0);
   }
 }
